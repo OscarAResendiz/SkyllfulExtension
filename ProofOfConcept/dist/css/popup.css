@@ -1,0 +1,54 @@
+/* Popup css */
+html, body {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: auto;
+    width: 150px;
+}
+
+div {
+    margin: 0 10px;
+}
+
+#skyllfulLogo {
+    font-size: 15px;
+    width: 50%;
+    height: auto;
+}
+
+#headerSeparator {
+    margin-top: 0;
+}
+
+#buttons {
+    box-sizing: border-box;
+    width: 130px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.iconButton {
+    background-color: DodgerBlue;
+    border: none;
+    color: black;
+    padding: 12px 8px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 100%;
+    margin: 5px;
+}
+
+.iconButton:hover {
+    background-color: RoyalBlue;
+}
+
+.circle {
+    border-radius: 100%;
+}
+
+.round-box {
+    border-radius: 30%;
+}

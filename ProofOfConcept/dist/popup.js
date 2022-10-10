@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=document.getElementById("websiteDownloadButton");null!=e&&e.addEventListener("click",(function(){chrome.tabs.query({active:!0,currentWindow:!0},(function(e){console.log("Sending message to tab"),chrome.tabs.sendMessage(e[0].id?e[0].id:-1,"websiteDownloadButton")}))}))})();
