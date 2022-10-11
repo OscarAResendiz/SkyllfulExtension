@@ -6,15 +6,23 @@ chrome.runtime.onMessage.addListener(function (msg) {
     console.log("Message received: " + msg);
     if (msg == "websiteDownloadButton") {
 
-        recursiveParse(document.documentElement.childNodes,rebuiltWebPage)
-        console.log("Final HTML: ", rebuiltWebPage);
+        recursiveParse(document.documentElement.childNodes,rebuiltWebPage);
 
+        // regex for replacing script tags from the DOM
+        const regexp = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
 
+        // new DOM with the scripts removed
+        let noScriptsDOM = rebuiltWebPage.outerHTML.replace(regexp, " ");
+        
+        console.log("NO SCRIPTS DOM:", noScriptsDOM);
+        console.log("--------------- END ---------------");
+        //console.log("Final HTML: ", rebuiltWebPage);
 
+        
         // Save DOM variable into a new file, prompt save dialog pop up when clicking on button
 
         let doctypeHeader = "<!DOCTYPE html>";
-        let f = new File([doctypeHeader, rebuiltWebPage.outerHTML], "msg.html", { type: "text/html" });
+        let f = new File([doctypeHeader, noScriptsDOM], "msg.html", { type: "text/html" });
         let a = document.createElement("a");
 
         let url = window.URL.createObjectURL(f);
