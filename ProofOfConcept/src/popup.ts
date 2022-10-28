@@ -1,5 +1,5 @@
 // Popup script
-// Add event listener for download button
+// Add event listener for download button 
 
 const button = document.getElementById("websiteDownloadButton");
 
